@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Homedisplay from './Homedisplay';
-// import RestaurantData from './RestaurantData';
+import RestaurantData from './RestaurantData';
 import {
   MDBNavbar,
   MDBNavbarNav,
@@ -9,6 +9,7 @@ import {
   MDBNavbarToggler,
   MDBContainer,
   MDBIcon,
+  MDBBtn,
   MDBCollapse
 } from 'mdb-react-ui-kit';
 
@@ -16,10 +17,10 @@ import {
 function Header() {
   const [home,showBasic] = useState(true);
  
-  const [ setdata] = useState(false)
+  const [data, setdata] = useState(false)
   
   function restaurantDatahandler() {
-    // setdata(true)
+    setdata(true)
     showBasic(false)
     
   }        
@@ -31,7 +32,7 @@ function Header() {
     <>
       
       <header>
-        <div className="MDBnnavbar">
+        <div className="MDBn"></div>
       <MDBNavbar expand='lg' light bgColor='black'  fixed>
         <MDBContainer fluid>
           <MDBNavbarToggler
@@ -66,12 +67,11 @@ function Header() {
             </MDBNavbarNav>
           </MDBCollapse>
         </MDBContainer>
-          </MDBNavbar>
-          </div>
+      </MDBNavbar>
         </header>
         
    
-      
+      {data && <RestaurantData />}
       {home && <Homedisplay />}
       </>
   );
